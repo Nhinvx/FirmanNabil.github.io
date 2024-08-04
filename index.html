@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Profil Interaktif</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #021027;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .profile-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .profile-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-header {
+            position: relative;
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px 20px;
+            background: linear-gradient(135deg, #d32f2f, #f44336);
+        }
+
+        .profile-header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        .profile-header p {
+            margin: 5px 0 0;
+            font-size: 1.2em;
+        }
+
+        .profile-content {
+            padding: 20px;
+        }
+
+        .profile-content h2 {
+            margin-top: 0;
+            color: #d32f2f;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-content h2 i {
+            margin-right: 10px;
+        }
+
+        .profile-content p {
+            line-height: 1.6;
+        }
+
+        .profile-content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .profile-content ul li {
+            background-color: #f9f9f9;
+            margin: 5px 0;
+            padding: 10px;
+            border-left: 4px solid #d32f2f;
+            transition: background-color 0.3s ease, border-left-color 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-content ul li i {
+            margin-right: 10px;
+        }
+
+        .profile-content ul li:hover {
+            background-color: #e0e0e0;
+            border-left-color: #f44336;
+        }
+
+        .project-list,
+        .project-description,
+        .contact-info {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f5f5f5;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .profile-footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f0f0f0;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .contact-info {
+            cursor: pointer;
+            color: #d32f2f;
+            text-decoration: underline;
+        }
+
+        .profile-image {
+            max-width: 300px; /* Atur lebar maksimum gambar */
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <h1>Firman Nabil Yuandito</h1>
+            <p>Mahasiswa di Politeknik Negeri Jember</p>
+        </div>
+        <div class="profile-content">
+            <h2 id="about-link"><i class="fas fa-user"></i>Tentang Saya</h2>
+            <div id="about-info" class="hidden">
+                <img src="profile.jpg" alt="Firman Nabil Yuandito" class="profile-image">
+                <p>Halo! Saya Firman Nabil, seorang mahasiswa yang sedang mempelajari Teknik Komputer di Politeknik Negeri Jember. Saya suka bermain game dan suka merangkai alat, saya tinggal di Desa Pecoro, Provinsi Jember, Provinsi Jawa Timur.</p>
+            </div>
+            <h2 id="projects-link"><i class="fas fa-briefcase"></i>Proyek</h2>
+            <div id="project-list" class="hidden">
+                <ul>
+                    <li data-project="rfid"><i class="fas fa-lock"></i>Sistem Kunci Pintu RFID</li>
+                    <li data-project="irrigation"><i class="fas fa-water"></i>Sistem Irigasi Cerdas</li>
+                    <li data-project="doorbell"><i class="fas fa-bell"></i>Bel Pintu Cerdas dengan Kamera</li>
+                </ul>
+            </div>
+            <div id="project-info" class="hidden">
+                <!-- Penjelasan proyek akan ditampilkan di sini -->
+            </div>
+            <h2 id="contact-link"><i class="fas fa-envelope"></i>Kontak</h2>
+            <div id="contact-details" class="hidden">
+                <p>Email: <a href="mailto:firmannabil60@gmail.com">firmannabil60@gmail.com</a></p>
+                <p>No Telp: <a href="https://api.whatsapp.com/send/?phone=081515782752&text&type=phone_number&app_absent=0">081515782752</a></p>
+                <p>Instagram: <a href="https://www.instagram.com/komtloy?igsh=ajhzNmE4cDIwcXV5/">Nabil</a></p>
+            </div>
+        </div>
+        <div class="profile-footer">
+            <p>&copy; 2024 Firman Nabil Yuandito</p>
+        </div>
+    </div>
+    <script>
+        // Menangani klik pada bagian Tentang Saya
+        document.getElementById('about-link').addEventListener('click', function() {
+            var info = document.getElementById('about-info');
+            info.classList.toggle('hidden');
+            document.getElementById('project-info').classList.add('hidden');
+            document.getElementById('contact-details').classList.add('hidden');
+        });
+
+        // Menangani klik pada bagian Proyek
+        document.getElementById('projects-link').addEventListener('click', function() {
+            var list = document.getElementById('project-list');
+            if (list.classList.contains('hidden')) {
+                list.classList.remove('hidden');
+                document.getElementById('project-info').classList.add('hidden');
+                document.getElementById('contact-details').classList.add('hidden');
+            } else {
+                list.classList.add('hidden');
+            }
+        });
+
+        // Menangani klik pada item proyek
+        document.getElementById('project-list').addEventListener('click', function(event) {
+            if (event.target && event.target.nodeName === 'LI') {
+                var project = event.target.getAttribute('data-project');
+                displayProjectInfo(project);
+                document.getElementById('project-list').classList.add('hidden');
+            }
+        });
+
+        // Fungsi untuk menampilkan penjelasan proyek
+        function displayProjectInfo(project) {
+            var infoHtml = '';
+
+            switch(project) {
+                case 'rfid':
+                    infoHtml = '<div class="project-description"><p>Proyek ini melibatkan pembuatan sistem keamanan untuk pintu menggunakan teknologi RFID. Ini mencakup pembacaan tag RFID untuk membuka kunci pintu dan integrasi relay untuk mengontrol mekanisme penguncian.</p></div>';
+                    break;
+                case 'irrigation':
+                    infoHtml = '<div class="project-description"><p>Sistem yang dirancang untuk secara otomatis menyiram tanaman berdasarkan tingkat kelembaban tanah. Menggunakan sensor untuk memantau kondisi tanah dan mengendalikan sistem irigasi sesuai kebutuhan.</p></div>';
+                    break;
+                case 'doorbell':
+                    infoHtml = '<div class="project-description"><p>Proyek ini fitur bel pintu dengan kamera terintegrasi yang memungkinkan Anda melihat dan berkomunikasi dengan pengunjung dari jarak jauh melalui smartphone atau komputer.</p></div>';
+                    break;
+                default:
+                    infoHtml = '<p>Pilih proyek untuk melihat detailnya.</p>';
+            }
+
+            // Menampilkan informasi proyek
+            document.getElementById('project-info').innerHTML = infoHtml;
+            document.getElementById('project-info').classList.remove('hidden');
+        }
+
+        // Menangani klik pada bagian Kontak
+        document.getElementById('contact-link').addEventListener('click', function() {
+            var details = document.getElementById('contact-details');
+            details.classList.toggle('hidden');
+            document.getElementById('about-info').classList.add('hidden');
+            document.getElementById('project-info').classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
